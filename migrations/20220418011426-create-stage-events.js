@@ -23,4 +23,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('stages_events');
   }
-};
+}
