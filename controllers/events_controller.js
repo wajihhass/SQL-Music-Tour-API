@@ -8,10 +8,8 @@ const { Op } = require('sequelize')
 events.get('/', async (req, res) => {
     try {
         const foundEvents = await Event.findAll({
-           // order: [ [ 'date', 'ASC' ] ],
-            where: {
-                name: { [Op.like]: `%${req.query.name ? req.query.name : ''}%` }
-            }
+          order: [ [ 'start_date', 'ASC' ] ]
+           
         })
         res.status(200).json(foundEvents)
     } catch (error) {
@@ -20,10 +18,17 @@ events.get('/', async (req, res) => {
 })
 
 // FIND A SPECIFIC EVENT
-events.get('/:id', async (req, res) => {
+events.get('/:name', async (req, res) => {
     try {
         const foundEvent = await Event.findOne({
-            where: { event_id: req.params.id }
+            where: { name: req.params.name },
+           /*include: [ 
+                {
+                    model: MeetGreet,
+                     as: "MeetGreets",
+                }
+                        
+                ]*/
         })
         res.status(200).json(foundEvent)
     } catch (error) {

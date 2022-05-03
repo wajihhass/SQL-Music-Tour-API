@@ -20,6 +20,11 @@ module.exports = {
       start_time: {
         type: Sequelize.DATE,
         allowNull: false
+      }, 
+      stage_id: {
+        type: Sequelize.DATE,
+        allowNull: false
+
       }
     });
   },
