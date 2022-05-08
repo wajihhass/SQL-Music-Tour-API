@@ -10,11 +10,11 @@ module.exports = {
       },
         event_id: {
         type: Sequelize.INTEGER,
-        allowNull:true
+        allowNull:false
       },
       band_id: {
         type: Sequelize.INTEGER,
-        allowNull:true
+        allowNull:false
       }
     });
   },

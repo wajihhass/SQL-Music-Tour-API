@@ -20,7 +20,7 @@ bands.get('/:name', async (req, res) => {
     try {
         const foundBand = await Band.findOne({
             where: { name: req.params.name },
-            include: [ 
+           include: [ 
             {
                 model: MeetGreet,
                  as: "MeetGreets",
